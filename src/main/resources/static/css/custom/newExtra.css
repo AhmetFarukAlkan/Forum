@@ -1,0 +1,470 @@
+/*body{*/
+/*  background-color: #000000;*/
+/*}*/
+
+/* header start */
+header.backImage {
+  background-image: url("../../img/maxresdefault (1).jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+header.backImage .backImage-sub {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  /*font-style: italic;*/
+  /*font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+header.backImage .backImage-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header div a{
+  background-color: #ff8800;
+  border: #ff8800;
+  backface-visibility: hidden;
+}
+
+
+/*Navbar Start*/
+#mainNavbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #000000;
+}
+
+#mainNavbar .navbar-brand{
+  color: #ff8800;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.063em;
+}
+
+#mainNavbar .navbar-nav .nav-item .nav-link {
+  font-family: "Montserrat",
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Open Sans',
+  'Helvetica Neue',
+  sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+
+#mainNavbar .navbar-nav .nav-item .nav-link.active,
+#mainNavbar .navbar-nav .nav-item .nav-link:hover {
+  color: #ff8800;
+}
+
+#mainNavbar .navbar-nav .nav-item .nav-input-link {
+  font-family: "Montserrat",
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Open Sans',
+  'Helvetica Neue',
+  sans-serif;
+  font-size: 1rem;
+  /*color: #fff;*/
+  letter-spacing: 0.06em;
+}
+
+/*#mainNavbar .navbar-nav .nav-item .nav-input-link.active,*/
+/*#mainNavbar .navbar-nav .nav-item .nav-input-link:hover {*/
+/*  color: #ff8800;*/
+/*}*/
+
+#mainNavbar .offcanvas button{
+  backface-visibility: hidden;
+  border: #ff8800;
+  color: #ffffff;
+}
+
+#mainNavbar .offcanvas button:hover{
+  background-color: #ff8800;
+  border: #ff8800;
+  color: #ffffff;
+}
+
+#mainNavbar .offcanvas .form-inline input{
+  border: #ff8800;
+}
+
+/*services start*/
+.mySection{
+  padding: 5rem 0;
+}
+
+.mySection h2.s-heading{
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.mySection h3.s-subheading{
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  font-family: "Roboto Slap", sans-serif;
+
+}
+
+
+/**/
+@media(max-width:991.98px) {
+  header.backImage {
+    padding-top: 11rem;
+    padding-bottom: 13rem;
+  }
+
+  header.backImage .backImage-heading {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  #mainNavbar .navbar-nav .nav-item .nav-link {
+    margin-left: 5px;
+    /*margin-bottom: 10px;*/
+    color: #212529;
+  }
+
+  #mainNavbar .navbar-nav .nav-item .nav-input-link {
+    color: #212529;
+  }
+
+  #mainNavbar .navbar-nav form input{
+    border: 2px solid #ff8800;
+    border-radius: 4px;
+  }
+
+  #mainNavbar .offcanvas .form-inline input{
+    border: 1px solid #ff8800;
+    border-radius: 10px;
+  }
+
+  .p-modal .modal-content h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .p-modal .close-modal {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  #categories .c-item .c-link img {
+    /*height: 250px;*/
+    height: 300px;
+    /*width: auto;*/
+    position: center;
+
+  }
+
+  header.backImage-sub {
+    padding-top: 11rem;
+    padding-bottom: 13rem;
+  }
+
+  header.CategoryBackImage .backImage-heading {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  header.CategoryBackImage {
+    padding-top: 11rem;
+    padding-bottom: 13rem;
+  }
+
+}
+
+@media(min-width:992px) {
+  header.backImage {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+  }
+
+  #mainNavbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border: none;
+    background-color: transparent;
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    -webkit-transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    -moz-transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    -ms-transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    -o-transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+  }
+
+  #mainNavbar .navbar-brand {
+    font-size: 1.5rem;
+    transition: font-size 0.3s ease-in-out;
+    -webkit-transition: font-size 0.3s ease-in-out;
+    -moz-transition: font-size 0.3s ease-in-out;
+    -ms-transition: font-size 0.3s ease-in-out;
+    -o-transition: font-size 0.3s ease-in-out;
+  }
+
+  #mainNavbar .navbar-nav .nav-item {
+    margin-right: 1rem;
+  }
+
+  #mainNavbar .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+
+  #mainNavbar.navbar-mobile .navbar-brand {
+    font-size: 1.20em;
+  }
+
+  #mainNavbar.navbar-mobile {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #212529;
+  }
+
+  #categories .c-item .c-link img {
+    height: 350px;
+    /*width: 350px;*/
+    width:auto;
+
+  }
+
+  header.CategoryBackImage {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+}
+
+/*categories*/
+#categories .c-item{
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#categories .c-item .c-link{
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+#categories .c-item .c-link .c-hover{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(21, 22, 23, 0.75);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity ease-in-out 0.3s;
+  -webkit-transition: opacity ease-in-out 0.3s;
+  -moz-transition: opacity ease-in-out 0.3s;
+  -ms-transition: opacity ease-in-out 0.3s;
+  -o-transition: opacity ease-in-out 0.3s;
+}
+
+#categories .c-item .c-link .c-hover .ph-content {
+  font-size: 6.3rem;
+}
+
+#categories .c-item .c-link:hover .c-hover {
+  opacity: 1;
+}
+
+#categories .c-item .c-caption .pc-heading{
+  font-size: 1.5rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 0;
+  font-weight: 1000;
+}
+
+header.CategoryBackImage {
+  /*background-image: url("../../img/maxresdefault (1).jpg");*/
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+header.CategoryBackImage .backImage-sub {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  /*font-style: italic;*/
+  /*font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+header.CategoryBackImage .backImage-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*entry*/
+
+/*.inner-wrapper {*/
+/*  position: relative;*/
+/*  height: calc(100vh - 3.5rem);*/
+/*  transition: transform 0.3s;*/
+/*}*/
+/*@media (min-width: 992px) {*/
+  /*.sticky-navbar .inner-wrapper {*/
+  /*  height: calc(100vh - 3.5rem - 48px);*/
+  /*}*/
+/*}*/
+
+/*.inner-main,*/
+/*.inner-sidebar {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+/*.inner-sidebar {*/
+/*  left: 0;*/
+/*  width: 235px;*/
+/*  border-right: 1px solid #cbd5e0;*/
+/*  background-color: #fff;*/
+/*  z-index: 1;*/
+/*}*/
+/*.inner-main {*/
+/*  right: 0;*/
+/*  left: 235px;*/
+/*}*/
+/*.inner-main-footer,*/
+/*.inner-main-header,*/
+/*.inner-sidebar-footer,*/
+/*.inner-sidebar-header {*/
+/*  height: 3.5rem;*/
+/*  border-bottom: 1px solid #cbd5e0;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  padding: 0 1rem;*/
+/*  flex-shrink: 0;*/
+/*}*/
+/*.inner-main-body,*/
+/*.inner-sidebar-body {*/
+/*  padding: 1rem;*/
+/*  overflow-y: auto;*/
+/*  position: relative;*/
+/*  flex: 1 1 auto;*/
+/*}*/
+/*.inner-main-body .sticky-top,*/
+/*.inner-sidebar-body .sticky-top {*/
+/*  z-index: 999;*/
+/*}*/
+/*.inner-main-footer,*/
+/*.inner-main-header {*/
+/*  background-color: #fff;*/
+/*}*/
+/*.inner-main-footer,*/
+/*.inner-sidebar-footer {*/
+/*  border-top: 1px solid #cbd5e0;*/
+/*  border-bottom: 0;*/
+/*  height: auto;*/
+/*  min-height: 3.5rem;*/
+/*}*/
+/*@media (max-width: 767.98px) {*/
+/*  .inner-sidebar {*/
+/*    left: -235px;*/
+/*  }*/
+/*  .inner-main {*/
+/*    left: 0;*/
+/*  }*/
+/*  .inner-expand .main-body {*/
+/*    overflow: hidden;*/
+/*  }*/
+/*  .inner-expand .inner-wrapper {*/
+/*    transform: translate3d(235px, 0, 0);*/
+/*  }*/
+/*}*/
+
+/*.nav .show>.nav-link.nav-link-faded, .nav-link.nav-link-faded.active, .nav-link.nav-link-faded:active, .nav-pills .nav-link.nav-link-faded.active, .navbar-nav .show>.nav-link.nav-link-faded {*/
+/*  color: #3367b5;*/
+/*  background-color: #c9d8f0;*/
+/*}*/
+
+/*.nav-pills .nav-link.active, .nav-pills .show>.nav-link {*/
+/*  color: #fff;*/
+/*  background-color: #467bcb;*/
+/*}*/
+/*.nav-link.has-icon {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
+/*.nav-link.active {*/
+/*  color: #467bcb;*/
+/*}*/
+/*.nav-pills .nav-link {*/
+/*  border-radius: .25rem;*/
+/*}*/
+/*.nav-link {*/
+/*  color: #4a5568;*/
+/*}*/
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.inner-main-body{
+  max-width: 1000px;
+}
+
+.likeBtn:hover{
+  color: #00d0dc;
+}
+
+.dislikeBtn:hover{
+  color: #00d0dc;
+
+}
+
+.answerBtn:hover{
+  color: #00d0dc;
+}
+
+.entryTxt {
+  /*white-space: pre-wrap;*/
+  white-space: pre
+}

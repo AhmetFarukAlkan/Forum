@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ahmet Faruk Alkan">
+    <meta name="description" content="Forum">
+    <meta name="keywords" content="web,tasarım,dizayn,programlama,yazılım,geliştirme">
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <title>Banibal</title>
+    <style>
+        @import url("/css/all.css");
+    </style>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom/newExtra.css">
+</head>
+<body id="page-body">
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+    <div class="container">
+        <a href="#page-body" class="navbar-brand text-uppercase">Banibal</a>
+
+        <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#myNavbar"
+                aria-controls="myNavbar" aria-label="menüyü açma kapama butonu" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="myNavbar" aria-labelledby="myLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="myLabel">Menü</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Kapat">
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav ms-auto text-uppercase py-lg-2 ">
+                    <li class="nav-item">
+
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control me-sm-2 nav-input-link" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-warning my-2 my-sm-0 nav-input-link" type="submit">
+<!--                                Search-->
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form>
+
+                    </li>
+                    <li class="nav-item" id="LoginBtn"><a th:href="@{/oauth2/authorization/google}" class="nav-link btn-close-canvas">Giriş Yap</a></li>
+<!--                    <li class="nav-item" id="SignupBtn"><a th:href="@{/signup}" class="nav-link btn-close-canvas">Üye Ol</a></li>-->
+                    <li class="nav-item" id="UserNameBtn" style="display: none"><a href="#page-body" class="nav-link btn-close-canvas">[[${user}]]</a></li>
+                    <li class="nav-item" id="LogoutBtn" style="display: none"><a th:href="@{/logout}" class="nav-link btn-close-canvas">Çıkış</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<!--header start-->
+<header class="backImage text-white text-center">
+    <div class="container">
+        <div class="backImage-sub mb-4">Banibal'a Hoşgeldiniz!</div>
+        <div class="backImage-heading text-uppercase">Fikirlerinizi paylaşın</div>
+        <a href="#categories" class="btn btn-warning text-white btn-lg p-lg-4 text-uppercase fw-bolder">Kategorilere Göz At</a>
+    </div>
+</header>
+<!--header end-->
+
+<section id="categories" class="mySection bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="s-heading text-uppercase fw-bold">Kategoriler</h2>
+            <h3 class="s-subheading text-muted">
+                İncelemek istediğiniz konuyu seçin ve fikir alışverişinde bulunun.
+            </h3>
+        </div>
+        <div class="row gy-4">
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/haberler}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-newspaper"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/news.png" alt="news">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Haberler</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/ekonomi}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-currency-exchange"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/economy.jpg" alt="economy">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Ekonomi</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/siyaset}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-mic-fill"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/politic.jpg" alt="politic">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Siyaset</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/boş-konular}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-emoji-smile-upside-down"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/trollface.jpg" alt="trollface">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Boş Konular</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/sinema}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-film"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/cinema.jpg" alt="cinema">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Sinema</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/egitim}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/education.jpg" alt="education">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Eğitim</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/oyunlar}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-controller"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/games.png" alt="games">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Oyunlar</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/tarih}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-calendar-fill"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/history.jpg" alt="history">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Tarih</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/müzik}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-music-note-beamed"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/music.jpg" alt="music">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Müzik</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/sorunlar}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-calendar-event"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/problem.jpg" alt="problem">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Sorunlar</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/bilim}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-award"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/Science.png" alt="Science">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Bilim</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/edebiyat}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-journals"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/edebiyat.jpg" alt="edebiyat">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Edebiyat</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/diziler}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-camera-reels"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/series.jpg" alt="categories">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Diziler</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/teknoloji}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/technology.jpeg" alt="technology">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Teknoloji</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/sosyal-medya}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-collection-play-fill"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/socialmedia.png" alt="socialmedia">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Sosyal Medya</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/spor}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-bicycle"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/sport.jpg" alt="sport">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Spor</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/seyahat}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <!--                  <i class="bi bi-airplane"></i>-->
+                                <i class="bi bi-compass-fill"></i>
+
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/travel.jpg" alt="travel">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Seyahat</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="c-item">
+                    <a th:href="@{/kanal/televizyon}" class="c-link">
+                        <div class="c-hover rounded">
+                            <div class="ph-content text-white">
+                                <i class="bi bi-tv"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/categories/tv.jpg" alt="tv">
+                    </a>
+                    <div class="c-caption text-center bg-white p-4">
+                        <div class="pc-heading">Televizyon</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/custom/newExtra.js"></script>
+
+<script th:inline="javascript">
+
+    user = [[${user}]];
+    console.log(user)
+    if (user !== "" ){
+        document.getElementById("LoginBtn").style.display = "none";
+        // document.getElementById("SignupBtn").style.display = "none";
+        document.getElementById("UserNameBtn").style.display = "";
+        document.getElementById("LogoutBtn").style.display = "";
+    }
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ahmet Faruk Alkan">
+    <meta name="description" content="Forum">
+    <meta name="keywords" content="web,tasarım,dizayn,programlama,yazılım,geliştirme">
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <title>Banibal</title>
+    <style>
+        @import url("/css/all.css");
+    </style>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom/newExtra.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+</head>
+<body id="page-body" th:object="${header}" onload="printLists()">
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+    <div class="container">
+        <a th:href="@{/}"  class="navbar-brand text-uppercase">Banibal</a>
+
+        <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#myNavbar"
+                aria-controls="myNavbar" aria-label="menüyü açma kapama butonu" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="myNavbar" aria-labelledby="myLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="myLabel">Menü</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Kapat">
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav ms-auto text-uppercase py-lg-2 ">
+                    <li class="nav-item">
+
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control me-sm-2 nav-input-link" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-warning my-2 my-sm-0 nav-input-link" type="submit">
+                                <!--                                Search-->
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form>
+
+                    </li>
+                    <li class="nav-item" id="LoginBtn"><a th:href="@{/oauth2/authorization/google}" class="nav-link btn-close-canvas">Giriş Yap</a></li>
+                    <!--                    <li class="nav-item" id="SignupBtn"><a th:href="@{/signup}" class="nav-link btn-close-canvas">Üye Ol</a></li>-->
+                    <li class="nav-item" id="UserNameBtn" style="display: none"><a href="#page-body" class="nav-link btn-close-canvas">[[${user}]]</a></li>
+                    <li class="nav-item" id="LogoutBtn" style="display: none"><a th:href="@{/logout}" class="nav-link btn-close-canvas">Çıkış</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<!--header start-->
+<header  class="CategoryBackImage text-white text-center" th:style="'background-image:url(/img/backgroundPhotos/discussion.jpg);'">
+<!--         -->
+
+    <div class="container">
+<!--        <div class="backImage-heading text-uppercase text-warning">[[${header.name}]]</div>-->
+        <a href="#categories" class="btn btn-warning text-white btn-lg p-lg-4 text-uppercase fw-bolder">Yazılanlara Bak</a>
+    </div>
+</header>
+<!--header end-->
+
+<section id="categories" class="mySection bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="s-heading fw-bold">[[${header.name}]]</h2>
+            <h3 class="s-subheading text-muted">
+                başlığı altında yazılmış olanlar
+            </h3>
+        </div>
+        <div class="row gy-4">
+
+        </div>
+    </div>
+    <div class="container inner-main-body p-2 p-sm-3 collapse forum-content show">
+        <tbody th:each = "entry : ${entries}">
+        <div class="card mb-2">
+            <div class="card-body p-2 p-sm-3">
+                <div class="media forum-item" th:id="${entry.id}">
+                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img th:src="${entry.createUserPhoto}" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                    <div class="media-body">
+<!--                        th:href="@{'/baslik/' + ${entry.nameURL}}"-->
+                        <h6><a data-toggle="collapse" data-target=".forum-content" class="text-body"><label class="entryTxt" th:text="${entry.name}"></label></a></h6>
+<!--                        <p class="text-secondary">-->
+<!--                            [[${entry.description}]]-->
+<!--                        </p>-->
+                        <p class="text-muted"><label class="entryuserTxt" th:text="${entry.createUser}"></label>    <span class="text-secondary  font-weight-bold text-right">[[${entry.createDate}]]</span></p>
+                    </div>
+                    <div class="InteractionsBtns text-muted small text-right align-self-center row" >
+<!--                        [[${entry.like}]]-->
+                        <span class="col-12"><label class="likeTxt" th:text="${entry.like}"></label><i  class="likeBtn bi bi-hand-thumbs-up-fill m-2 fa-2x"  th:onclick="'like(\'' + ${entry.id} + '\');'"></i></span>
+<!--                        [[${entry.dislike}]]-->
+                        <span class="col-12"><label class="dislikeTxt" th:text="${entry.dislike}"></label><i class="dislikeBtn bi bi-hand-thumbs-down-fill m-2 fa-2x" th:onclick="'dislike(\'' + ${entry.id} + '\');'"></i></span>
+                        <span class="col-12">Cevap Ver<i class="answerBtn bi bi-reply m-2 fa-2x" th:onclick="'answer(\'' + ${entry.id} + '\');'"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </tbody>
+    </div>
+
+    <div class="container-fluid mt-5" id="entryDiv">
+        <form th:object="${entry}" style="max-width: 750px; margin: 0 auto">
+            <div class="border border-secondary rounded p-3">
+                <div class="form-group row m-3">
+                    <label for="description">Cevabınız</label>
+                    <textarea class="form-control"  th:field = "*{name}" rows="5" id="description" placeholder="..." required></textarea>
+                </div>
+
+                <div class="text-center">
+<!--                    type="submit"-->
+                    <button onclick="post()" class="btn btn-success m-2">Oluştur</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/custom/newExtra.js"></script>
+
+<script th:inline="javascript">
+
+    user = [[${user}]];
+    if (user !== "" ){
+        document.getElementById("LoginBtn").style.display = "none";
+        // document.getElementById("SignupBtn").style.display = "none";
+        document.getElementById("UserNameBtn").style.display = "";
+        document.getElementById("LogoutBtn").style.display = "";
+    }
+    else {
+        document.getElementById("entryDiv").style.display = "none";
+        // var divsToHide = document.getElementsByClassName("InteractionsBtns"); //divsToHide is an array
+        // for(var i = 0; i < divsToHide.length; i++){
+        //     divsToHide[i].style.display = "none"; // depending on what you're doing
+        // }
+    }
+
+</script>
+
+<script th:inline="javascript">
+    user = [[${user}]];
+
+    function post() {
+
+        if (user !== "" ){
+            $.ajax({
+                type: 'POST',
+                url: '/entries/new-entry',
+                data: {
+                    "entryName": document.getElementById("description").value,
+                    "header": [[${header.name}]]
+                },
+                success: function () {
+                    sleep(500);
+                    location.reload();
+                    window.location.reload();
+                }
+            });
+        }
+        else {
+            fireSweetAlert("Bu başlığa cevap vermem için giriş yapmalısınız.")
+        }
+
+    }
+
+    function like(id) {
+        if (user !== "" ) {
+            if (document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color === "") {
+                document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "blue";
+                if (parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) === parseFloat([[${entry.like}]]))
+                    document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = 1 + parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML);
+            } else {
+                document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "";
+                document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) - 1;
+            }
+
+            document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "";
+            if (parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) === parseFloat([[${entry.dislike}]]) + 1)
+                document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) - 1;
+
+
+            // window.alert("Like " + id);
+            $.ajax({
+                type: 'POST',
+                url: '/entries/like',
+                data: {
+                    "id": id,
+                }
+            });
+        }else {
+            fireSweetAlert("Beğenme tuşuna basabilmeniz için giriş yapmalısınız.")
+        }
+    }
+
+    function dislike(id) {
+        if (user !== "" ) {
+            // window.alert("Dislike " + id);
+            if (document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color === ""){
+                document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "blue";
+                if (parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) === parseFloat([[${entry.dislike}]]))
+                    document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = 1 + parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML);
+            }
+            else {
+                document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "";
+                document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) - 1;
+            }
+
+            document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "";
+            if (parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) === parseFloat([[${entry.like}]]) + 1)
+                document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) - 1;
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/entries/dislike',
+                data: {
+                    "id": id
+                }
+            });
+        }
+        else {
+            fireSweetAlert("Beğenmeme tuşuna basabilmeniz için giriş yapmalısınız.")
+        }
+    }
+
+    function answer(id) {
+        if (user !== "" ) {
+            document.getElementById("description").value =  document.getElementById(id).getElementsByClassName("entryuserTxt")[0].innerHTML + " dedi:\n\t" +
+                document.getElementById(id).getElementsByClassName("entryTxt")[0].innerHTML.replaceAll("\n", "\n\t") + "\ncvp: ";
+        }
+        else {
+            fireSweetAlert("Cevap verebilmeniz için giriş yapmalısınız.")
+        }
+    }
+
+    function printLists(){
+        if ([[${LikeEntry}]] !== null){
+            var likeList = [[${LikeEntry}]];
+            for (i = 0; i<likeList.length; i++){
+                document.getElementById(likeList[i]).getElementsByClassName("likeBtn")[0].style.color = "blue";
+            }
+        }
+
+        if ([[${DislikeEntry}]] !== null){
+            var dislikeList = [[${DislikeEntry}]];
+            for (i = 0; i<dislikeList.length; i++){
+                document.getElementById(dislikeList[i]).getElementsByClassName("dislikeBtn")[0].style.color = "blue";
+            }
+        }
+    }
+
+    function fireSweetAlert(message) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: message
+        })
+    }
+
+</script>
+
+</body>
+</html>
