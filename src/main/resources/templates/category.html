@@ -55,7 +55,24 @@
                     <!--                    <li class="nav-item" id="SignupBtn"><a th:href="@{/signup}" class="nav-link btn-close-canvas">Üye Ol</a></li>-->
                     <li class="nav-item" id="UserNameBtn" style="display: none"><a href="#page-body" class="nav-link btn-close-canvas">[[${user}]]</a></li>
                     <li class="nav-item" id="LogoutBtn" style="display: none"><a th:href="@{/logout}" class="nav-link btn-close-canvas">Çıkış</a></li>
-
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/haberler}" class="nav-link btn-close-canvas">Haberler</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/ekonomi}" class=" nav-link btn-close-canvas">Ekonomi</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/siyaset}" class=" nav-link btn-close-canvas">Siyaset</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/boş-konular}" class=" nav-link btn-close-canvas">Boş Konular</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/sinema}" class=" nav-link btn-close-canvas">Sinema</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/egitim}" class=" nav-link btn-close-canvas">Eğitim</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/oyunlar}" class=" nav-link btn-close-canvas">Oyunlar</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/tarih}" class=" nav-link btn-close-canvas">Tarih</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/müzik}" class=" nav-link btn-close-canvas">Müzik</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/sorunlar}" class=" nav-link btn-close-canvas">Sorunlar</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/bilim}" class=" nav-link btn-close-canvas">Bilim</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/edebiyat}" class=" nav-link btn-close-canvas">Edebiyat</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/diziler}" class=" nav-link btn-close-canvas">Diziler</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/teknoloji}" class="nav-link btn-close-canvas">Teknoloji</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/sosyal-medya}" class="nav-link btn-close-canvas">Sosyal Medya</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/spor}" class="nav-link btn-close-canvas">Spor</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/seyahat}" class="nav-link btn-close-canvas">Seyahat</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/televizyon}" class="nav-link btn-close-canvas">Televizyon</a></li>
                 </ul>
             </div>
         </div>
@@ -74,29 +91,91 @@
 <!--header end-->
 
 <section id="categories" class="mySection bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="s-heading text-uppercase fw-bold">Başlıklar</h2>
-            <h3 class="s-subheading text-muted">
-                Bu konuda girilmiş başlıklar
-            </h3>
+    <div class="row">
+        <div class="sideBar col-lg-2">
+            <div class="container text-center m-xl-4 m-md-3 m-sm-1">
+                <div class="form-group row bg-white">
+                    <div class="p-3">
+                        <div class="s-heading fw-bold">Kategoriler</div>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/haberler}"><div>Haberler</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/ekonomi}"><div>Ekonomi</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/siyaset}"><div>Siyaset</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/boş-konular}"><div>Boş Konular</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/sinema}"><div>Sinema</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/egitim}"><div>Eğitim</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/oyunlar}"><div>Oyunlar</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/tarih}"><div>Tarih</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/sorunlar}"><div>Sorunlar</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/bilim}"><div>Bilim</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/edebiyat}"><div>Edebiyat</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/diziler}"><div>Diziler</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/teknoloji}"><div>Teknoloji</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/sosyal-medya}"><div>Sosyal Medya</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/spor}"><div>Spor</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/seyahat}"><div>Seyahat</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/televizyon}"><div>Televizyon</div></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row gy-4">
+        <div class="entries col-lg-10">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="s-heading text-uppercase fw-bold">Başlıklar</h2>
+                    <h3 class="s-subheading text-muted">
+                        Bu konuda girilmiş başlıklar
+                    </h3>
+                </div>
+                <div class="row gy-4">
 
-        </div>
-    </div>
+                </div>
+            </div>
 
-<!--    + ${channel.name}.replace(' ', '').toLowerCase()-->
+            <!--    + ${channel.name}.replace(' ', '').toLowerCase()-->
 
-<!--    <form th:action="@{'/baslik/yeni-baslik/kanal=' + ${channel.name.replace(' ', '').toLowerCase()}}" method="post">-->
-<!--        <button class="btn btn-success" type="submit" style="margin-left: 15px">Yeni bir başlık aç</button>-->
-<!--    </form>-->
+            <!--    <form th:action="@{'/baslik/yeni-baslik/kanal=' + ${channel.name.replace(' ', '').toLowerCase()}}" method="post">-->
+            <!--        <button class="btn btn-success" type="submit" style="margin-left: 15px">Yeni bir başlık aç</button>-->
+            <!--    </form>-->
 
-    <div class="container inner-main-body p-2 p-sm-3 collapse forum-content show">
-        <a id="newHeaderBtn" class="btn btn-success mb-3" th:href="@{${channel.name.replace(' ', '-').toLowerCase()} + '/yeni-baslik' }" >Yeni bir başlık aç</a>
+            <div class="container inner-main-body p-2 p-sm-3 collapse forum-content show">
+                <a id="newHeaderBtn" class="btn btn-success mb-3" th:href="@{${channel.name.replace(' ', '-').toLowerCase()} + '/yeni-baslik' }" >Yeni bir başlık aç</a>
 
 
-        <tbody th:each = "heading : ${headings}">
+                <tbody th:each = "heading : ${headings}">
                 <div class="card mb-2">
                     <div class="card-body p-2 p-sm-3">
                         <div class="media forum-item">
@@ -115,10 +194,15 @@
                         </div>
                     </div>
                 </div>
-        </tbody>
+                </tbody>
 
+
+            </div>
+        </div>
 
     </div>
+
+
 
 </section>
 

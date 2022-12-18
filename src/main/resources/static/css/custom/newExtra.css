@@ -194,6 +194,9 @@ header div a{
     padding-bottom: 13rem;
   }
 
+  .sideBar{
+    display: none;
+  }
 }
 
 @media(min-width:992px) {
@@ -251,6 +254,10 @@ header div a{
   header.CategoryBackImage {
     padding-top: 12rem;
     padding-bottom: 12rem;
+  }
+
+  .canvasCategoryLink{
+    display: none !important;
   }
 }
 
@@ -467,4 +474,14 @@ header.CategoryBackImage .backImage-heading {
 .entryTxt {
   /*white-space: pre-wrap;*/
   white-space: pre
+}
+
+.categoryLink{
+  color: #6c757d;
+}
+
+.categoryLink:hover{
+  background-color: #000000;
+  color: #ff8800;
+  text-decoration: none;
 }

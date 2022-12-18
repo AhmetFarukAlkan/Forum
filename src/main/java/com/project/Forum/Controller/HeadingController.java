@@ -1,5 +1,6 @@
 package com.project.Forum.Controller;
 
+import com.project.Forum.Dto.EntryDto;
 import com.project.Forum.Entity.Entry;
 import com.project.Forum.Entity.Heading;
 import com.project.Forum.Repo.EntryRepository;
@@ -61,6 +62,8 @@ public class HeadingController {
     @GetMapping("/{header}")
     public String HeadingPage(@PathVariable("header") String header, Model model, @AuthenticationPrincipal OAuth2User user){
         Heading heading = headingService.getHeaderByName(header);
+        List<EntryDto> entries = entryVHeadingService.getEntries(heading.getId());
+        entries.sort((left, right) -> (int) (left.getId() - right.getId()));
 
         if (user == null){
             model.addAttribute("user", "");
@@ -73,7 +76,9 @@ public class HeadingController {
         }
         model.addAttribute("entry", new Entry());
         model.addAttribute("header", heading);
-        model.addAttribute("entries", entryVHeadingService.getEntries(heading.getId()));
+//        model.addAttribute("entries", entryVHeadingService.getEntries(heading.getId()));
+        model.addAttribute("entries", entries);
+
 
         return "header";
     }

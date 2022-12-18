@@ -16,6 +16,6 @@ public interface DislikeVUserRespository extends JpaRepository<DislikeVUser, Dis
     @Query(value = "SELECT * FROM dislikevuser WHERE entryid =:value1 and userid = :value2", nativeQuery = true)
     DislikeVUser selectByEntryAndUser(@Param("value1") Long value1, @Param("value2") Long value2);
 //    @Modifying(clearAutomatically = true)
-    @Query(value = "DELETE FROM dislikevuser WHERE entryid = :value", nativeQuery = true)
-    void deleteDislikeVUserByEntry(@Param("value") Long value);
+    @Query(value = "DELETE FROM dislikevuser WHERE entryid = :value and userid = :value2", nativeQuery = true)
+    void deleteDislikeVUserByEntry(@Param("value") Long value, @Param("value2") Long value2);
 }

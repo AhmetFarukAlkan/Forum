@@ -42,7 +42,6 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav ms-auto text-uppercase py-lg-2 ">
                     <li class="nav-item">
-
                         <form class="form-inline my-2 my-lg-0">
                             <input class="form-control me-sm-2 nav-input-link" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-warning my-2 my-sm-0 nav-input-link" type="submit">
@@ -50,17 +49,32 @@
                                 <i class="bi bi-search"></i>
                             </button>
                         </form>
-
                     </li>
                     <li class="nav-item" id="LoginBtn"><a th:href="@{/oauth2/authorization/google}" class="nav-link btn-close-canvas">Giriş Yap</a></li>
                     <!--                    <li class="nav-item" id="SignupBtn"><a th:href="@{/signup}" class="nav-link btn-close-canvas">Üye Ol</a></li>-->
                     <li class="nav-item" id="UserNameBtn" style="display: none"><a href="#page-body" class="nav-link btn-close-canvas">[[${user}]]</a></li>
                     <li class="nav-item" id="LogoutBtn" style="display: none"><a th:href="@{/logout}" class="nav-link btn-close-canvas">Çıkış</a></li>
-
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/haberler}" class="nav-link btn-close-canvas">Haberler</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/ekonomi}" class=" nav-link btn-close-canvas">Ekonomi</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/siyaset}" class=" nav-link btn-close-canvas">Siyaset</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/boş-konular}" class=" nav-link btn-close-canvas">Boş Konular</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/sinema}" class=" nav-link btn-close-canvas">Sinema</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/egitim}" class=" nav-link btn-close-canvas">Eğitim</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/oyunlar}" class=" nav-link btn-close-canvas">Oyunlar</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/tarih}" class=" nav-link btn-close-canvas">Tarih</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/müzik}" class=" nav-link btn-close-canvas">Müzik</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/sorunlar}" class=" nav-link btn-close-canvas">Sorunlar</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/bilim}" class=" nav-link btn-close-canvas">Bilim</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/edebiyat}" class=" nav-link btn-close-canvas">Edebiyat</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/diziler}" class=" nav-link btn-close-canvas">Diziler</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/teknoloji}" class="nav-link btn-close-canvas">Teknoloji</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/sosyal-medya}" class="nav-link btn-close-canvas">Sosyal Medya</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/spor}" class="nav-link btn-close-canvas">Spor</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/seyahat}" class="nav-link btn-close-canvas">Seyahat</a></li>
+                    <li class="nav-item canvasCategoryLink"><a th:href="@{kanal/televizyon}" class="nav-link btn-close-canvas">Televizyon</a></li>
                 </ul>
             </div>
         </div>
-
     </div>
 </nav>
 
@@ -76,59 +90,127 @@
 <!--header end-->
 
 <section id="categories" class="mySection bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="s-heading fw-bold">[[${header.name}]]</h2>
-            <h3 class="s-subheading text-muted">
-                başlığı altında yazılmış olanlar
-            </h3>
-        </div>
-        <div class="row gy-4">
-
-        </div>
-    </div>
-    <div class="container inner-main-body p-2 p-sm-3 collapse forum-content show">
-        <tbody th:each = "entry : ${entries}">
-        <div class="card mb-2">
-            <div class="card-body p-2 p-sm-3">
-                <div class="media forum-item" th:id="${entry.id}">
-                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img th:src="${entry.createUserPhoto}" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                    <div class="media-body">
-<!--                        th:href="@{'/baslik/' + ${entry.nameURL}}"-->
-                        <h6><a data-toggle="collapse" data-target=".forum-content" class="text-body"><label class="entryTxt" th:text="${entry.name}"></label></a></h6>
-<!--                        <p class="text-secondary">-->
-<!--                            [[${entry.description}]]-->
-<!--                        </p>-->
-                        <p class="text-muted"><label class="entryuserTxt" th:text="${entry.createUser}"></label>    <span class="text-secondary  font-weight-bold text-right">[[${entry.createDate}]]</span></p>
+    <div class="row">
+        <div class="sideBar col-lg-2">
+            <div class="container text-center m-xl-4 m-md-3 m-sm-1">
+                <div class="form-group row bg-white">
+                    <div class="p-3">
+                        <div class="s-heading fw-bold">Kategoriler</div>
                     </div>
-                    <div class="InteractionsBtns text-muted small text-right align-self-center row" >
-<!--                        [[${entry.like}]]-->
-                        <span class="col-12"><label class="likeTxt" th:text="${entry.like}"></label><i  class="likeBtn bi bi-hand-thumbs-up-fill m-2 fa-2x"  th:onclick="'like(\'' + ${entry.id} + '\');'"></i></span>
-<!--                        [[${entry.dislike}]]-->
-                        <span class="col-12"><label class="dislikeTxt" th:text="${entry.dislike}"></label><i class="dislikeBtn bi bi-hand-thumbs-down-fill m-2 fa-2x" th:onclick="'dislike(\'' + ${entry.id} + '\');'"></i></span>
-                        <span class="col-12">Cevap Ver<i class="answerBtn bi bi-reply m-2 fa-2x" th:onclick="'answer(\'' + ${entry.id} + '\');'"></i></span>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/haberler}"><div>Haberler</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/ekonomi}"><div>Ekonomi</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/siyaset}"><div>Siyaset</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/boş-konular}"><div>Boş Konular</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/sinema}"><div>Sinema</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/egitim}"><div>Eğitim</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/oyunlar}"><div>Oyunlar</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/tarih}"><div>Tarih</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/sorunlar}"><div>Sorunlar</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/bilim}"><div>Bilim</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/edebiyat}"><div>Edebiyat</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/diziler}"><div>Diziler</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/teknoloji}"><div>Teknoloji</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/sosyal-medya}"><div>Sosyal Medya</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/spor}"><div>Spor</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/seyahat}"><div>Seyahat</div></a>
+                    </div>
+                    <div class="c-caption p-3">
+                        <a class="categoryLink" th:href="@{/kanal/televizyon}"><div>Televizyon</div></a>
                     </div>
                 </div>
             </div>
+
         </div>
-        </tbody>
-    </div>
-
-    <div class="container-fluid mt-5" id="entryDiv">
-        <form th:object="${entry}" style="max-width: 750px; margin: 0 auto">
-            <div class="border border-secondary rounded p-3">
-                <div class="form-group row m-3">
-                    <label for="description">Cevabınız</label>
-                    <textarea class="form-control"  th:field = "*{name}" rows="5" id="description" placeholder="..." required></textarea>
+        <div class="entries col-lg-10">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="s-heading fw-bold">[[${header.name}]]</h2>
+                    <h3 class="s-subheading text-muted">
+                        başlığı altında yazılmış olanlar
+                    </h3>
                 </div>
+                <div class="row gy-4">
 
-                <div class="text-center">
-<!--                    type="submit"-->
-                    <button onclick="post()" class="btn btn-success m-2">Oluştur</button>
                 </div>
             </div>
-        </form>
+            <div class="container inner-main-body p-2 p-sm-3 collapse forum-content show">
+                <tbody th:each = "entry : ${entries}">
+                <div class="card mb-2">
+                    <div class="card-body p-2 p-sm-3">
+                        <div class="media forum-item" th:id="${entry.id}">
+                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img th:src="${entry.createUserPhoto}" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                            <div class="media-body">
+                                <!--                        th:href="@{'/baslik/' + ${entry.nameURL}}"-->
+                                <h6><a data-toggle="collapse" data-target=".forum-content" class="text-body"><label class="entryTxt" th:text="${entry.name}"></label></a></h6>
+                                <!--                        <p class="text-secondary">-->
+                                <!--                            [[${entry.description}]]-->
+                                <!--                        </p>-->
+                                <p class="text-muted"><label class="entryuserTxt" th:text="${entry.createUser}"></label>    <span class="text-secondary  font-weight-bold text-right">[[${entry.createDate}]]</span></p>
+                            </div>
+                            <div class="InteractionsBtns text-muted small text-right align-self-center row" >
+                                <!--                        [[${entry.like}]]-->
+                                <span class="col-12"><label class="likeTxt" th:text="${entry.like}"></label><i  class="likeBtn bi bi-hand-thumbs-up-fill m-2 fa-2x"  th:onclick="'like(\'' + ${entry.id} + '\');'"></i></span>
+                                <!--                        [[${entry.dislike}]]-->
+                                <span class="col-12"><label class="dislikeTxt" th:text="${entry.dislike}"></label><i class="dislikeBtn bi bi-hand-thumbs-down-fill m-2 fa-2x" th:onclick="'dislike(\'' + ${entry.id} + '\');'"></i></span>
+                                <span class="col-12">Cevap Ver<i class="answerBtn bi bi-reply m-2 fa-2x" th:onclick="'answer(\'' + ${entry.id} + '\');'"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </tbody>
+            </div>
+
+            <div class="container-fluid mt-5" id="entryDiv">
+                <form th:object="${entry}" style="max-width: 750px; margin: 0 auto">
+                    <div class="border border-secondary rounded p-3">
+                        <div class="form-group row m-3">
+                            <label for="description">Cevabınız</label>
+                            <textarea class="form-control"  th:field = "*{name}" rows="5" id="description" placeholder="..." required></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <!--                    type="submit"-->
+                            <button onclick="post()" class="btn btn-success m-2">Oluştur</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
     </div>
+
 
 </section>
 
@@ -182,19 +264,18 @@
 
     function like(id) {
         if (user !== "" ) {
-            if (document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color === "") {
+            if (document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color === ""){
+                if (document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color === "blue") {
+                    document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "";
+                    document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) - 1;
+                }
                 document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "blue";
-                if (parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) === parseFloat([[${entry.like}]]))
-                    document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = 1 + parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML);
-            } else {
+                document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) + 1;
+            }
+            else {
                 document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "";
                 document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) - 1;
             }
-
-            document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "";
-            if (parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) === parseFloat([[${entry.dislike}]]) + 1)
-                document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) - 1;
-
 
             // window.alert("Like " + id);
             $.ajax({
@@ -211,21 +292,18 @@
 
     function dislike(id) {
         if (user !== "" ) {
-            // window.alert("Dislike " + id);
             if (document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color === ""){
+                if (document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color === "blue") {
+                    document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "";
+                    document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) - 1;
+                }
                 document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "blue";
-                if (parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) === parseFloat([[${entry.dislike}]]))
-                    document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = 1 + parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML);
+                document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) + 1;
             }
             else {
                 document.getElementById(id).getElementsByClassName("dislikeBtn")[0].style.color = "";
                 document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("dislikeTxt")[0].innerHTML) - 1;
             }
-
-            document.getElementById(id).getElementsByClassName("likeBtn")[0].style.color = "";
-            if (parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) === parseFloat([[${entry.like}]]) + 1)
-                document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML = parseFloat(document.getElementById(id).getElementsByClassName("likeTxt")[0].innerHTML) - 1;
-
 
             $.ajax({
                 type: 'POST',
@@ -240,10 +318,30 @@
         }
     }
 
+    function likeFinder(id){
+        var likeList = [[${LikeEntry}]];
+        for (let i = 0; i < likeList.length; i++) {
+            if (id === likeList[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function dislikeFinder(id){
+        var dislikeList = [[${DislikeEntry}]];
+        for (let i = 0; i < dislikeList.length; i++) {
+            if (id === dislikeList[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+
     function answer(id) {
         if (user !== "" ) {
             document.getElementById("description").value =  document.getElementById(id).getElementsByClassName("entryuserTxt")[0].innerHTML + " dedi:\n\t" +
-                document.getElementById(id).getElementsByClassName("entryTxt")[0].innerHTML.replaceAll("\n", "\n\t") + "\ncvp: ";
+                document.getElementById(id).getElementsByClassName("entryTxt")[0].innerHTML.replaceAll("\n", "\n\t") + "\nCevap: ";
         }
         else {
             fireSweetAlert("Cevap verebilmeniz için giriş yapmalısınız.")

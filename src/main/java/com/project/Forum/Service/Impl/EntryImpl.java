@@ -76,7 +76,7 @@ public class EntryImpl implements EntryService {
 
         try {
             LikeVUser likeVUser = likeVUserRepository.selectByEntryAndUser(id, Ouser.getId());
-            likeVUserRepository.deleteLikeVUserByEntry(likeVUser.getLikeVUserId().getEntryID().getId());
+            likeVUserRepository.deleteLikeVUserByEntry(likeVUser.getLikeVUserId().getEntryID().getId(), Ouser.getId());
         }
         catch (Exception exception){
             likeVUserService.Insert(getEntryById(id), Ouser);
@@ -85,7 +85,7 @@ public class EntryImpl implements EntryService {
 
         try {
             DislikeVUser dislikeVUser = dislikeVUserRespository.selectByEntryAndUser(id, Ouser.getId());
-            dislikeVUserRespository.deleteDislikeVUserByEntry(dislikeVUser.getDislikeVUserId().getEntryID().getId());
+            dislikeVUserRespository.deleteDislikeVUserByEntry(dislikeVUser.getDislikeVUserId().getEntryID().getId(), Ouser.getId());
         }catch (Exception exception){
             System.out.println("BosSorguLike2");
         }
@@ -98,7 +98,7 @@ public class EntryImpl implements EntryService {
 
         try {
             DislikeVUser dislikeVUser = dislikeVUserRespository.selectByEntryAndUser(id, Ouser.getId());
-            dislikeVUserRespository.deleteDislikeVUserByEntry(dislikeVUser.getDislikeVUserId().getEntryID().getId());
+            dislikeVUserRespository.deleteDislikeVUserByEntry(dislikeVUser.getDislikeVUserId().getEntryID().getId(), Ouser.getId());
         }catch (Exception exception){
             System.out.println("BosSorguDislike1");
             dislikeVUserService.Insert(getEntryById(id), Ouser);
@@ -106,7 +106,7 @@ public class EntryImpl implements EntryService {
 
         try {
             LikeVUser likeVUser = likeVUserRepository.selectByEntryAndUser(id, Ouser.getId());
-            likeVUserRepository.deleteLikeVUserByEntry(likeVUser.getLikeVUserId().getEntryID().getId());
+            likeVUserRepository.deleteLikeVUserByEntry(likeVUser.getLikeVUserId().getEntryID().getId(), Ouser.getId());
         }
         catch (Exception exception){
             System.out.println("BosSorguDislike2");

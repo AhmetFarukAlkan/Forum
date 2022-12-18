@@ -17,6 +17,6 @@ public interface LikeVUserRepository extends JpaRepository<LikeVUser, LikeVUserI
     @Query(value = "SELECT * FROM likevuser WHERE entryid = :value1 and userid = :value2", nativeQuery = true)
     LikeVUser selectByEntryAndUser(@Param("value1") Long value1, @Param("value2") Long value2);
 
-    @Query(value = "DELETE FROM likevuser WHERE entryid = :value", nativeQuery = true)
-    void deleteLikeVUserByEntry(@Param("value") Long value);
+    @Query(value = "DELETE FROM likevuser WHERE entryid = :value and userid = :value2", nativeQuery = true)
+    void deleteLikeVUserByEntry(@Param("value") Long value, @Param("value2") Long value2);
 }
