@@ -1,7 +1,6 @@
 package com.project.Forum.Repo;
 
 import com.project.Forum.Entity.Entry;
-import com.project.Forum.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,4 +21,5 @@ public interface EntryRepository extends JpaRepository<Entry, Long> {
 
     @Query(value = "select entryvheading.entryid from dislikevuser join entryvheading on dislikevuser.entryid=entryvheading.entryid where dislikevuser.userid =:value and entryvheading.headingid =:value2", nativeQuery = true)
     ArrayList<Integer> getDislikeEntryByUser(@Param("value") Long value, @Param("value2") Long value2);
+
 }

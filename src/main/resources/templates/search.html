@@ -21,9 +21,9 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 </head>
-<body id="page-body" th:object="${channel}">
+<body id="page-body">
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar" style="background-color: black">
     <div class="container">
         <a th:href="@{/}"  class="navbar-brand text-uppercase">Banibal</a>
 
@@ -77,21 +77,10 @@
                 </ul>
             </div>
         </div>
-
     </div>
 </nav>
 
-<!--header start-->
-<header  class="CategoryBackImage text-white text-center" th:style="'background-image:url(' + ${channel.photoAddress} + ');'">
-    <div class="container">
-<!--        <div class="backImage-sub mb-4">[[${channel.name}]]</div>-->
-        <div class="backImage-heading text-uppercase">[[${channel.name}]]</div>
-        <a href="#categories" class="btn btn-warning text-white btn-lg p-lg-4 text-uppercase fw-bolder">Başlıklara Bak</a>
-    </div>
-</header>
-<!--header end-->
-
-<section id="categories" class="mySection bg-light">
+<section id="categories" class="mySection bg-light" style="margin-top: 75px">
     <div class="row">
         <div class="sideBar col-lg-2">
             <div class="container text-center m-xl-4 m-md-3 m-sm-1">
@@ -156,9 +145,9 @@
         <div class="entries col-lg-10">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="s-heading text-uppercase fw-bold">Başlıklar</h2>
+                    <h2 class="s-heading text-uppercase fw-bold">Arama</h2>
                     <h3 class="s-subheading text-muted">
-                        Bu konuda girilmiş başlıklar
+                        Arama sonucu girilmiş başlıklar.
                     </h3>
                 </div>
                 <div class="row gy-4">
@@ -166,38 +155,27 @@
                 </div>
             </div>
 
-            <!--    + ${channel.name}.replace(' ', '').toLowerCase()-->
-
-            <!--    <form th:action="@{'/baslik/yeni-baslik/kanal=' + ${channel.name.replace(' ', '').toLowerCase()}}" method="post">-->
-            <!--        <button class="btn btn-success" type="submit" style="margin-left: 15px">Yeni bir başlık aç</button>-->
-            <!--    </form>-->
-
             <div class="container inner-main-body p-2 p-sm-3 collapse forum-content show">
-                <a id="newHeaderBtn" class="btn btn-success mb-3" th:href="@{${channel.name.replace(' ', '-').toLowerCase()} + '/yeni-baslik' }" >Yeni bir başlık aç</a>
-
-
                 <tbody th:each = "heading : ${headings}">
-                <div class="card mb-2">
-                    <div class="card-body p-2 p-sm-3">
-                        <div class="media forum-item">
-                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img th:src="${heading.createUserPhoto}" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                            <div class="media-body">
-                                <h6><a th:href="@{'/baslik/' + ${heading.nameURL}}" data-toggle="collapse" data-target=".forum-content" class="text-body">[[${heading.name}]]</a></h6>
-                                <p class="text-secondary">
-                                    [[${heading.description}]]
-                                </p>
-                                <p class="text-muted">[[${heading.createUser}]] <span class="text-secondary  font-weight-bold">[[${heading.createDate}]]</span></p>
-                            </div>
-                            <div class="text-muted small text-center align-self-center">
-                                <!--                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>-->
-                                <span><i class="far fa-comment ml-2"></i> [[${heading.numberReply}]]</span>
+                    <div class="card mb-2">
+                        <div class="card-body p-2 p-sm-3">
+                            <div class="media forum-item">
+                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img th:src="${heading.createUserPhoto}" class="mr-3 rounded-circle" width="50" alt="User"  src=""/></a>
+                                <div class="media-body">
+                                    <h6><a th:href="@{'/baslik/' + ${heading.nameURL}}" data-toggle="collapse" data-target=".forum-content" class="text-body">[[${heading.name}]]</a></h6>
+                                    <p class="text-secondary">
+                                        [[${heading.description}]]
+                                    </p>
+                                    <p class="text-muted">[[${heading.createUser}]] <span class="text-secondary  font-weight-bold">[[${heading.createDate}]]</span></p>
+                                </div>
+                                <div class="text-muted small text-center align-self-center">
+                                    <!--                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>-->
+                                    <span><i class="far fa-comment ml-2"></i> [[${heading.numberReply}]]</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </tbody>
-
-
             </div>
         </div>
 
@@ -219,9 +197,6 @@
         // document.getElementById("SignupBtn").style.display = "none";
         document.getElementById("UserNameBtn").style.display = "";
         document.getElementById("LogoutBtn").style.display = "";
-    }
-    else{
-        document.getElementById("newHeaderBtn").style.display = "none";
     }
 
 </script>

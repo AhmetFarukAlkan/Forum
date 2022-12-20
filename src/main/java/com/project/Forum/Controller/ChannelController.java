@@ -3,6 +3,7 @@ package com.project.Forum.Controller;
 import com.project.Forum.Entity.Channel;
 import com.project.Forum.Entity.Heading;
 import com.project.Forum.Entity.User;
+import com.project.Forum.Repo.HeadingRepository;
 import com.project.Forum.Service.ChannelService;
 import com.project.Forum.Service.HeadingService;
 import com.project.Forum.Service.HeadingVChannelService;
@@ -29,7 +30,7 @@ public class ChannelController {
 
     private final HeadingService headingService;
 
-    public ChannelController(ChannelService headingService, UserService userService, HeadingVChannelService headingVChannelService, HeadingService headingService1) {
+    public ChannelController(ChannelService headingService, UserService userService, HeadingVChannelService headingVChannelService, HeadingService headingService1, HeadingRepository headingRepository) {
         this.channelService = headingService;
         this.userService = userService;
         this.headingVChannelService = headingVChannelService;
@@ -92,5 +93,7 @@ public class ChannelController {
 
         return "newWriting";
     }
+
+
 
 }
