@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -60,7 +61,7 @@ public class HeadingController {
     }
 
     @GetMapping("/{header}")
-    public String HeadingPage(@PathVariable("header") String header, Model model, @AuthenticationPrincipal OAuth2User user){
+    public String HeadingPage(@PathVariable("header") String header, Model model, @AuthenticationPrincipal OAuth2User user) throws UnsupportedEncodingException {
         Heading heading = headingService.getHeaderByName(header);
         List<EntryDto> entries = entryVHeadingService.getEntries(heading.getId());
         entries.sort((left, right) -> (int) (left.getId() - right.getId()));

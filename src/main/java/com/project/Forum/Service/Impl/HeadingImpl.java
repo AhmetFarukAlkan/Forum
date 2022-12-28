@@ -8,6 +8,8 @@ import com.project.Forum.Repo.HeadingRepository;
 import com.project.Forum.Service.HeadingService;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Service
@@ -45,7 +47,7 @@ public class HeadingImpl implements HeadingService {
             Heading heading = getHeaderByID(integer);
             headingDto.setId(heading.getId());
             headingDto.setName(heading.getName());
-            headingDto.setNameURL(heading.getName().replace(" ", "-").toLowerCase(Locale.ROOT));
+            headingDto.setNameURL(heading.getName().replaceAll("[.,!]", "").trim().replace(" ", "-").toLowerCase());
             headingDto.setDescription(heading.getDescription());
             headingDto.setCreateUser(heading.getCreateUser().getName());
             headingDto.setCreateUserPhoto(heading.getCreateUser().getPhoto());
@@ -63,9 +65,11 @@ public class HeadingImpl implements HeadingService {
     }
 
     @Override
-    public Heading getHeaderByName(String name) {
+    public Heading getHeaderByName(String name) throws UnsupportedEncodingException {
+        byte[] bytes = name.getBytes(StandardCharsets.UTF_8);
+        String headerName = new String(bytes, StandardCharsets.UTF_8);
         return   headingRepository.findAll().stream()
-                .filter(h -> h.getName().toLowerCase(Locale.ROOT).equals(name.replace("-", " ").toLowerCase()))
+                .filter(h -> h.getName().replaceAll("[.,?]", "").trim().replace(" ", "-").toLowerCase(Locale.ROOT).equals(headerName.replaceAll("[.,?]", "").trim().replace(" ", "-").toLowerCase(Locale.ROOT)))
                 .findFirst().orElse(null);
     }
 

@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +44,7 @@ public class EntryController {
 //    }
 
     @PostMapping({"/new-entry"})
-    public ResponseEntity<Entry> Insert(@RequestParam("entryName") String entryName, @RequestParam("header") String heading, @AuthenticationPrincipal OAuth2User user){
+    public ResponseEntity<Entry> Insert(@RequestParam("entryName") String entryName, @RequestParam("header") String heading, @AuthenticationPrincipal OAuth2User user) throws UnsupportedEncodingException {
         Entry entry = new Entry();
         entry.setName(entryName);
         entry.setStatus("A");

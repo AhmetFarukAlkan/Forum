@@ -9,6 +9,7 @@ import com.project.Forum.Repo.HeadingVChannelRepository;
 import com.project.Forum.Service.HeadingVChannelService;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -35,7 +36,11 @@ public class HeadingVChannelImpl implements HeadingVChannelService {
             HeadingDto headingDto = new HeadingDto();
             headingDto.setId(headingVChannel.getId().getHeadingID().getId());
             headingDto.setName(headingVChannel.getId().getHeadingID().getName());
-            headingDto.setNameURL(headingVChannel.getId().getHeadingID().getName().replace(" ", "-").toLowerCase(Locale.ROOT));
+            headingDto.setNameURL(headingVChannel.getId().getHeadingID().getName().replaceAll("[.,?]", "").trim().replace(" ", "-").toLowerCase(Locale.ROOT));
+            byte[] bytes = headingDto.getNameURL().getBytes(StandardCharsets.UTF_8);
+            String headerName = new String(bytes, StandardCharsets.UTF_8);
+//            System.out.println(headerName.replaceAll("[.,?]", "").trim().replace(" ", "-").toLowerCase(Locale.ROOT));
+
             headingDto.setDescription(headingVChannel.getId().getHeadingID().getDescription());
             headingDto.setCreateUser(headingVChannel.getId().getHeadingID().getCreateUser().getName());
             headingDto.setCreateUserPhoto(headingVChannel.getId().getHeadingID().getCreateUser().getPhoto());
